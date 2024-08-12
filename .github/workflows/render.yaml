@@ -30,8 +30,7 @@ jobs:
       - name: Render Quarto doc
         shell: Rscript {0}
         run: |
-          quarto::quarto_render("news.qmd")
-          mv news.html qmd/news.html  # Adjust based on the actual output file name
+          quarto::quarto_render("index.qmd", output_dir = "qmd")
         env:
           NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
 
