@@ -25,7 +25,9 @@ jobs:
       # Render the rmarkdown file into rmd/
       - name: Render Quarto doc
         shell: Rscript {0}
-        run: quarto::quarto_render("news.qmd", output_dir = "qmd")
+        run: |
+          quarto::quarto_render("news.qmd")
+          file.rename("news.html", "qmd/news.html")  # Move output to the qmd/ directory
         env:
           NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
       
