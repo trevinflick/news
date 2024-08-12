@@ -26,7 +26,8 @@ jobs:
       - name: Render Quarto doc
         shell: Rscript {0}
         run: quarto::render("news.qmd", output_dir = "qmd")
-        env: NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
+        env:
+          NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
       
 
       # Publish rmd/ to GitHub pages
